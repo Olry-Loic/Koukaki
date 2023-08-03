@@ -2,13 +2,22 @@
 
 get_header();
 ?>
-
     <main id="primary" class="site-main">
         <section class="banner">
-            <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+            <div class="video-logo">
+            <div style="position: relative; width: 100%; height: 806px; overflow: hidden;">
+            <div class="video">
+                <video id="background-video" autoplay loop muted>
+                <source src="<?php echo get_template_directory_uri() . '/assets/videos/studiokoukaki.mp4'; ?> "alt="">
+            </div>
+            <div class="logo conteneur logo-parallax">
+                
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants" style="position: absolute;" data-bottom-top="transform: translate3d(0, 0px, 0)" data-top-bottom="transform: translate3d(0, -200px, 0)">>
+            </div>
+            </div>
         </section>
         <section id="#story" class="story">
-            <h2>L'histoire</h2>
+            <h2><span class="invisible">L'histoire</span></h2>
             <article id="" class="story__article">
                 <p><?php echo get_theme_mod('story'); ?></p>
             </article>
@@ -18,13 +27,12 @@ get_header();
                 'posts_per_page' => -1,
                 'meta_key'  => '_main_char_field',
                 'orderby'   => 'meta_value_num',
-
             );
             $characters_query = new WP_Query($args);
             ?>
             <article id="characters">
                 <div class="main-character">
-                    <h3>Les personnages</h3>
+                    <h3><span class="invisible">Les personnages</span></h3>
                     <?php
                     $main_character = $characters_query->posts[0];
                     echo '<figure>';
@@ -50,21 +58,32 @@ get_header();
             </article>
             <article id="place">
                 <div>
-                    <h3>Le Lieu</h3>
+                    <h3><span class="invisible">Le Lieu</span></h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
 
             </article>
         </section>
-
-
         <section id="studio">
-            <h2>Studio Koukaki</h2>
+            <h2><span class="invisible">Studio Koukaki</span></h2>
             <div>
                 <p>Acteur majeur de l’animation, Koukaki est un studio intégré fondé en 2012 qui créé, produit et distribue des programmes originaux dans plus de 190 pays pour les enfants et les adultes. Nous avons deux sections en activité : le long métrage et le court métrage. Nous développons des films fantastiques, principalement autour de la culture de notre pays natal, le Japon.</p>
                 <p>Avec une créativité et une capacité d’innovation mondialement reconnues, une expertise éditoriale et commerciale à la pointe de son industrie, le Studio Koukaki se positionne comme un acteur incontournable dans un marché en forte croissance. Koukaki construit chaque année de véritables succès et capitalise sur de puissantes marques historiques. Cette année, il vous présente “Fleurs d’oranger et chats errants”.</p>
             </div>
-            </section>
+        </section>
+        <section id="nomination" class="nomination">
+            <div class="nominationOscars">
+                <div class="fond-texte">
+                    <div class="texte">
+                        <p><span class="invisible">Fleurs d'oranger & chats errents<br>est nominé aux Oscars Short<br>film animated de 2022!</span></p>
+                    </div> 
+                    <div class="fond">
+                    </div>
+                </div>    
+                    <div class="logo-oscars">
+                    </div> 
+            </div>      
+        </section>
     </main><!-- #main -->
 
 <?php

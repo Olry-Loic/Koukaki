@@ -47,6 +47,12 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 # Utilities
 	- Accessibility
 	- Alignments
+# Animation
+	- fade in
+	- slideDown
+	- slideUp
+	- storyUp
+	- rotate
 
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
@@ -64,6 +70,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
+	animation:fadeIn 1s ;
 }
 
 /* Sections
@@ -547,7 +554,13 @@ object {
 img {
 	height: auto;
 	max-width: 100%;
+	z-index: 1;
+
 }
+#background-video{
+    z-index: 0;
+}
+
 
 figure {
 	margin: 1em 0;
@@ -564,20 +577,6 @@ table {
 	padding-top: 18em;
 	padding-bottom: 1em;
 	overflow: hidden;
-}
-
-.site-footer::before {
-	content: url("./assets/images/Sunflower.png");
-	position: absolute;
-	left: 4em;
-	top: 0em;
-}
-
-.site-footer::after {
-	content: url("./assets/images/orchid.png");
-	position: absolute;
-	right: -4em;
-	bottom: 7.8em;
 }
 
 .site-footer ul {
@@ -723,18 +722,60 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-.banner {
+/*.banner {
 	background-image: url("./assets/images/banner.png");
 	min-height: 806px;
 	background-size: cover;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}*/
+
+.banner {
+	position: relative;
+	width: 100%;
+	height: 806px; 
+	overflow: hidden;
+  }
+  
+/* effet de défilement vers le haut */
+  .logo-parallax img[data-bottom-top] {
+	transform: translate3d(0, 0px, 0);
+  }
+  
+/* effet de défilement vers le bas */
+  .logo-parallax img[data-top-bottom] {
+	transform: translate3d(0, -50px, 0); 
+  }
+
+.video-logo {
+	min-height: 806px;
+	position: relative;
 }
 
-.banner img {
-	margin-top: -10%;
+.video {
+	min-height: 806px;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	overflow: hidden;
+	z-index: 0;
+	animation: slideDown 2000ms, transition-delay 1000ms;
+	
+}
+
+.logo img {
 	width: 50%;
+	margin-left: 360px;
+	margin-top: 155px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	z-index: 1;
+	animation: slideUp 2000ms forwards, flotement 4000ms infinite forwards 2000ms;
 }
 
 .story {
@@ -757,6 +798,9 @@ textarea {
 	position: absolute;
 	left: 0.7em;
 	top: 6em;
+	width: 155px;
+	height: 155px;
+	animation: rotate 5s infinite linear 2000ms;
 }
 
 .story__article {
@@ -783,6 +827,8 @@ textarea {
 	position: absolute;
 	left: calc(50% + 414px);
 	top: 2em;
+	transition-property:content;
+	animation: rotate 5s infinite linear 2000ms;
 }
 
 .story #characters {
@@ -851,6 +897,9 @@ textarea {
 	position: absolute;
 	left: -1em;
 	top: 0;
+	width: 203px;
+	height: 203px;
+	animation: rotate 5s infinite linear 2000ms;
 }
 
 #studio h2::after {
@@ -858,6 +907,9 @@ textarea {
 	position: absolute;
 	right: 1em;
 	top: 1.2em;
+	width: 109px;
+	height: 109px;
+	animation:  rotate 5s infinite linear 2000ms;
 }
 
 #studio > div {
@@ -905,6 +957,72 @@ textarea {
 	}
 }
 
+section#nomination {
+    display: flex;
+    justify-content: center;
+	position: relative;
+	margin-top: 128.5px;
+	margin-bottom: 50px;
+}
+.nominationOscars {
+	display: flex;
+	flex-direction: row;
+}
+.fond-texte {
+	width: 780px;
+	height: 280px;
+	position: relative;
+}
+.fond {
+	display: flex;
+	flex-direction: row;
+	position: absolute; 
+	width: 780px;
+	height: 290px;
+  	z-index: 1; 
+	content: url("./assets/images/fond.png");
+}
+.texte {
+	color: white;
+	font-size: 30px;
+	margin-top: 30px;
+	margin-left: 80px;
+	position: absolute; 
+  	z-index: 2;
+	/*content: url("./assets/images/texte.png");*/
+}
+
+.logo-oscars {
+	display: flex;
+	flex-direction: row;
+	margin-top: 40px;
+	width: 278px;
+	height: 129px;
+	content: url("./assets/images/logo-oscars.png");
+}
+#nomination .nominationOscars::before {
+	content: "";
+	background-image: url("./assets/images/Sunflower.png");
+	background-size: 100% auto;
+	position: absolute;
+	width: 216px;
+	height: 216px;
+	top: -10em;
+	left: 0em;
+	animation: rotate 5s infinite linear 2000ms;
+
+}
+
+#nomination .nominationOscars::after {
+	content: url("./assets/images/orchid.png");
+	position: absolute;
+	width: 173px;
+	height: 173px;
+	top: -13em;
+	right: -5em;
+	animation: rotate 5s infinite linear 2000ms;
+}
+
 @media all and (max-width: 920px) {
 	.story h2::before {
 		content: '';
@@ -939,6 +1057,22 @@ textarea {
 	}
 	#studio > div p {
 		width: 100%;
+	}
+
+	.fond-texte {
+		display: flex;
+		width: 400px;
+		height: auto;
+		justify-content: center;
+		margin-bottom: 150px;
+	}
+	
+	.nominationOscars {
+		flex-direction: column;
+	}
+	.logo-oscars {
+		display: none;
+
 	}
 }
 
@@ -1280,5 +1414,118 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+/* # animation*/
 
+/* fadeIn*/
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+    }
+    100% {
+		opacity: 1;
+    }
+  }
+
+/* slideDown */  
+  @keyframes slideDown {
+	0% {
+        transform: translatey(-100px);
+		opacity: 0;
+    }
+    100% {
+        transform: translatey(0px);
+		opacity: 1;
+    }
+}
+
+/* slideUp */ 
+@keyframes slideUp {
+	0% {
+        transform: translatey(250px);
+		opacity: 0;
+    }
+    100% {
+        transform: translatey(0px);
+		opacity: 1;
+    }
+}
+
+/* storyUp */
+.story, #studio, #nomination, #colophon {
+	animation: storyUp 2000ms,transition-delay 1000ms;
+}
+
+@keyframes storyUp {
+	
+	0% {
+        transform: translatey(200px);
+		
+    }
+    100% {
+        transform: translatey(0px);
+	
+    }
+}
+ 
+/* rotate */
+@keyframes rotate {
+	from {
+	  transform: rotate(0deg);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+
+  /*titleAnimation*/
+.invisible {
+	opacity: 0;
+
+  }
+.visible {
+	animation-name: titleAnimation;
+	animation-duration: 2000ms ;
+	display: block;
+
+}
+
+  @keyframes titleAnimation {
+
+	from {
+		
+		transform: translateY(50px);
+    }
+	
+    to {
+		
+		transform: translateY(0);
+	
+    }
+  }
+  @keyframes flotement {
+
+    0%, 100% {
+        /* La position initiale du logo */
+        transform: translate(0, 0);
+    }
+    20% {
+        /* La position la plus haute du flottement sur les axes X et Y */
+        transform: translateY(-10px);
+    }
+	40% {
+        /* La position la plus haute du flottement sur les axes X et Y */
+		transform: translateX(10px);
+    }
+	60% {
+        /* La position la plus haute du flottement sur les axes X et Y */
+        transform: translateY(10px);
+    }
+	80% {
+        /* La position la plus haute du flottement sur les axes X et Y */
+        transform: translateY(10px);
+    }
+
+}
+    
+ 
 /*# sourceMappingURL=style.css.map */

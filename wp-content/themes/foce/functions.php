@@ -182,3 +182,14 @@ function foce_add_google_fonts()
     wp_enqueue_style('foce-google-fonts-roboto-mono', 'https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap', false);
 }
 add_action('wp_enqueue_scripts', 'foce_add_google_fonts');
+
+function mon_theme_scripts() {
+    // Charger le fichier JavaScript titleAnimation.js
+    wp_enqueue_script('titleAnimation', get_template_directory_uri() . '/js/titleAnimation.js', array(),'1.0', true);
+}
+add_action('wp_enqueue_scripts', 'mon_theme_scripts');
+function mon_parallax_scripts() {
+    // Charger le fichier JavaScript titleAnimation.js
+    wp_enqueue_script('parallaxAnimation', get_template_directory_uri() . '/js/parallaxAnimation.js', array(),'1.0', true);
+}
+add_action('wp_enqueue_scripts', 'mon_parallax_scripts');
