@@ -5,14 +5,12 @@ get_header();
     <main id="primary" class="site-main">
         <section class="banner">
             <div class="video-logo">
-            <div style="position: relative; width: 100%; height: 806px; overflow: hidden;">
             <div class="video">
                 <video id="background-video" autoplay loop muted>
                 <source src="<?php echo get_template_directory_uri() . '/assets/videos/studiokoukaki.mp4'; ?> "alt="">
             </div>
             <div class="logo conteneur logo-parallax">
-                
-                <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants" style="position: absolute;" data-bottom-top="transform: translate3d(0, 0px, 0)" data-top-bottom="transform: translate3d(0, -200px, 0)">>
+                <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
             </div>
             </div>
         </section>
@@ -33,36 +31,26 @@ get_header();
             <article id="characters">
                 <div class="main-character">
                     <h3><span class="invisible">Les personnages</span></h3>
-                    <?php
-                    $main_character = $characters_query->posts[0];
-                    echo '<figure>';
-                    echo get_the_post_thumbnail( $main_character->ID, 'full' );
-                    echo '<figcaption>'. $main_character->post_title . '</figcaption>';
-                    echo '</figure>';
-                    $characters_query->next_post();
-                    ?>
-                </div>
-                <div class="other-characters">
-                    <?php
-                    while ( $characters_query->have_posts() ) {
-                        $characters_query->the_post();
-                        echo '<figure>';
-                        echo get_the_post_thumbnail( get_the_ID(), 'full' );
-                        echo '<figcaption>';
-                        the_title();
-                        echo'</figcaption>';
-                        echo '</figure>';
-                    }
-                    ?>
+                    <?php get_template_part('parts/swiperCoverFlow'); ?>
+
                 </div>
             </article>
             <article id="place">
-                <div>
-                    <h3><span class="invisible">Le Lieu</span></h3>
-                    <p><?php echo get_theme_mod('place'); ?></p>
+                <div class="place">
+                    <div>
+                        <h3><span class="invisible">Le Lieu</span></h3>
+                        <p><?php echo get_theme_mod('place'); ?></p>
+                    </div>
+                    </article>
+                    <div class="cloud cloud-parallax">
+                        <div class="bigCloud">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/big_cloud.png'; ?> " alt="">
+                        </div>
+                        <div class="littleCloud">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/little_cloud.png'; ?> " alt="">
+                        </div>
+                    </div>
                 </div>
-
-            </article>
         </section>
         <section id="studio">
             <h2><span class="invisible">Studio Koukaki</span></h2>
