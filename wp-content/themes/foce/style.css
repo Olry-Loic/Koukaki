@@ -553,18 +553,12 @@ object {
   max-width: 100%;
 }
 
-img {
-  height: auto;
-  max-width: 100%;
-  z-index: 1;
-}
+/*img {
+	height: auto;
+	max-width: 100%;
+	z-index: 1;
 
-#background-video {
-  height: auto;
-  max-width: 100%;
-  z-index: 0;
-}
-
+}*/
 figure {
   margin: 1em 0;
 }
@@ -723,19 +717,48 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-/*.banner {
-	background-image: url("./assets/images/banner.png");
-	min-height: 806px;
-	background-size: cover;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}*/
-.banner {
+img.image {
   position: relative;
   width: 100%;
-  height: 806px;
-  overflow: hidden;
+  z-index: 0;
+}
+
+video#background-video {
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.video-logo {
+  position: relative;
+  width: 100%;
+  padding-bottom: 60%;
+}
+
+img.image {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: -1;
+}
+
+video#background-video {
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+}
+
+.logo img {
+  width: 40%;
+  margin-left: 25%;
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  animation: slideUp 2000ms forwards, flotement 4000ms infinite forwards 2000ms;
 }
 
 /* effet de défilement */
@@ -748,41 +771,15 @@ textarea {
   transform: translate3d(0, -50px, 0);
 }
 
-.video-logo {
-  min-height: 806px;
-  position: relative;
-}
-
-.video {
-  height: auto;
-  max-width: 100%;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  overflow: hidden;
-  z-index: 0;
-  animation: slideDown 2000ms, transition-delay 1000ms;
-}
-
-.logo img {
-  width: 50%;
-  margin-left: 25%;
-  margin-top: 10%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: absolute;
-  z-index: 1;
-  animation: slideUp 2000ms forwards, flotement 4000ms infinite forwards 2000ms;
-}
-
 .story {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+section#\#story {
+  margin-top: 80px;
 }
 
 .story h2::before {
@@ -858,9 +855,17 @@ textarea {
 
 .story #place {
   display: flex;
-  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
   width: 100%;
-  min-height: 699px;
+  min-height: auto;
+  background-size: cover;
+}
+
+.place-image {
+  display: flex;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+  position: absolute;
   background-size: cover;
 }
 
@@ -1005,11 +1010,14 @@ section#nomination {
 .nominationOscars {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  height: 280px;
 }
 
 .fond-texte {
-  width: 780px;
-  height: 280px;
+  width: 65%;
+  height: auto;
   position: relative;
 }
 
@@ -1017,8 +1025,7 @@ section#nomination {
   display: flex;
   flex-direction: row;
   position: absolute;
-  width: 780px;
-  height: 290px;
+  height: auto;
   z-index: 1;
   content: url("./assets/images/fond.png");
 }
@@ -1030,7 +1037,6 @@ section#nomination {
   margin-left: 80px;
   position: absolute;
   z-index: 2;
-  /*content: url("./assets/images/texte.png");*/
 }
 
 .logo-oscars {
@@ -1039,7 +1045,7 @@ section#nomination {
   margin-top: 40px;
   width: 278px;
   height: 129px;
-  content: url("./assets/images/logo-oscars.png");
+  /*content: url("./assets/images/logo-oscars.png");*/
 }
 
 #nomination .nominationOscars::before {
@@ -1101,7 +1107,6 @@ section#nomination {
   }
   .fond-texte {
     display: flex;
-    width: 400px;
     height: auto;
     justify-content: center;
     margin-bottom: 150px;
@@ -1527,7 +1532,7 @@ section#nomination {
 
 @keyframes titleAnimation {
   from {
-    transform: translateY(50px);
+    transform: translateY(25px);
   }
   to {
     transform: translateY(0);
@@ -1736,6 +1741,7 @@ section#nomination {
   display: flex;
   width: auto;
   height: 80px;
+  position: relative;
   justify-content: flex-end;
   gap: 19%;
   background-color: #FFD5A2;
@@ -1749,7 +1755,7 @@ section#nomination {
 }
 
 .sidenav a {
-  font-size: calc(4rem + 1.5vw);
+  font-size: 64px;
   color: black;
   font-family: Roboto Mono;
   position: relative;
@@ -1828,4 +1834,96 @@ p.legend {
   right: 0px;
 }
 
+@media (max-width: 1439px) {
+  h1 {
+    font-size: calc(1rem + 1.2vw);
+  }
+  .button {
+    padding-right: 10px;
+  }
+  .sidenav {
+    width: auto;
+    right: 0px;
+    left: 0px;
+  }
+  .menuImg3 {
+    display: none;
+  }
+  .menuImg4 {
+    display: none;
+  }
+}
+@media (max-width: 1200px) {
+  .logo-oscars {
+    display: none;
+  }
+}
+@media (max-width: 1024px) {
+  .place-image {
+    display: none;
+  }
+  .cloud {
+    display: none;
+  }
+  .nominationOscars {
+    display: flex;
+  }
+  .logo-oscars {
+    margin-left: 30%;
+    margin-right: 25%;
+  }
+  .place {
+    height: auto;
+    margin-left: 20%;
+  }
+  /*.texte {
+  	font-size: 18px;
+  	margin-top: 10%;
+  	margin-left: 25%;
+  }*/
+  .fond-texte {
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  .sidenav a {
+    font-size: 30px;
+  }
+  .sidenav {
+    height: 600px;
+  }
+  .menuImg8 {
+    display: none;
+  }
+  .menuImg7 {
+    display: none;
+  }
+  #background-video {
+    display: none;
+  }
+  .visible {
+    animation: none;
+  }
+  h2, h3 {
+    font-size: 2rem;
+  }
+  #studio h2::before {
+    display: none;
+  }
+  .fond {
+    width: 100%;
+  }
+  .texte {
+    font-size: 3.5vw;
+    margin-left: 10%;
+  }
+}
+@media (min-width: 769px) {
+  img.image {
+    display: none;
+  }
+  .story, #studio, #nomination, #colophon {
+    animation: none;
+  }
+}
 /*# sourceMappingURL=style.css.map */

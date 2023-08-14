@@ -14,6 +14,7 @@
 
     // Mettez à jour la position verticale du logo en fonction de la position de défilement (à la moitié de la vitesse de l'image)
     const logo = document.querySelector(".logo");
-    logo.style.transform = "translate3d(0, " + +scrollPosition / 6 + "px, 0)";
+    logo.style.transform = "translate3d(0, " + +scrollPosition / 3.5 + "px, 0)";
   });
 });
+

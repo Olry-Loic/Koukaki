@@ -5,13 +5,16 @@ get_header();
     <main id="primary" class="site-main">
         <section class="banner">
             <div class="video-logo">
-            <div class="video">
-                <video id="background-video" autoplay loop muted>
-                <source src="<?php echo get_template_directory_uri() . '/assets/videos/studiokoukaki.mp4'; ?> "alt="">
-            </div>
-            <div class="logo conteneur logo-parallax">
-                <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
-            </div>
+                <div class="video">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/banner.png'; ?> " class="image" alt="">
+                    <video id="background-video" autoplay loop muted>
+                    <source src="<?php echo get_template_directory_uri() . '/assets/videos/studiokoukaki.mp4'; ?> " class="source" alt="">
+                    </video>
+                </div>
+                <div class="logo conteneur logo-parallax">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+                </div>
+                </div>
             </div>
         </section>
         <section id="#story" class="story">
@@ -36,8 +39,9 @@ get_header();
                 </div>
             </article>
             <article id="place">
+            <img src="<?php echo get_template_directory_uri() . '/assets/images/Studio_Koukaki-image_place.png'; ?> " class="place-image" alt="">
                 <div class="place">
-                    <div>
+                    <div class="paragraphe">
                         <h3 id="Lieu"><span class="invisible">Le Lieu</span></h3>
                         <p><?php echo get_theme_mod('place'); ?></p>
                     </div>
@@ -69,6 +73,7 @@ get_header();
                     </div>
                 </div>    
                     <div class="logo-oscars">
+                    <img src="<?php echo get_template_directory_uri() . '/assets/images/logo-oscars.png'; ?> " alt="">
                     </div> 
             </div>      
         </section>

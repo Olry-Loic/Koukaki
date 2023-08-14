@@ -184,30 +184,30 @@ function foce_add_google_fonts()
 add_action('wp_enqueue_scripts', 'foce_add_google_fonts');
 
 function mon_theme_scripts() {
-    // Charger le fichier JavaScript titleAnimation.js
+// Charger le fichier JavaScript titleAnimation.js
     wp_enqueue_script('titleAnimation', get_template_directory_uri() . '/js/titleAnimation.js', array(),'1.0', true);
 }
 add_action('wp_enqueue_scripts', 'mon_theme_scripts');
 function mon_parallax_scripts() {
-    // Charger le fichier JavaScript parallaxAnimation.js
+// Charger le fichier JavaScript parallaxAnimation.js
     wp_enqueue_script('parallaxAnimation', get_template_directory_uri() . '/js/parallaxAnimation.js', array(),'1.0', true);
 }
 add_action('wp_enqueue_scripts', 'mon_parallax_scripts');
 
 function swiper_script() {
-    // Charger le fichier JavaScript swiper.js
+// Charger le fichier JavaScript swiper.js
     wp_enqueue_script('swiper_script', get_template_directory_uri() . '/js/swiper.js', array(),'1.0', true);
 }
 add_action('wp_enqueue_scripts', 'swiper_script');
 
 function cloud_script() {
-    // Charger le fichier JavaScript cloudAnimation.js
+// Charger le fichier JavaScript cloudAnimation.js
     wp_enqueue_script('cloud_script', get_template_directory_uri() . '/js/cloudAnimation.js', array(),'1.0', true);
 }
 add_action('wp_enqueue_scripts', 'cloud_script');
 
 function menuBurger_script() {
-    // Charger le fichier JavaScript menuBurger.js
+// Charger le fichier JavaScript menuBurger.js
     wp_enqueue_script('menuBurger_script', get_template_directory_uri() . '/js/menuBurger.js', array(),'1.0', true);
 }
 add_action('wp_enqueue_scripts', 'menuBurger_script');

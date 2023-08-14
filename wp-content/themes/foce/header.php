@@ -29,6 +29,16 @@
     <nav>
         <div id="page" class="site">
             <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'foce' ); ?></a>
+            <div class="menu">    
+                <h1 class="slogant">Fleurs d'oranger & chats errants</h1>
+                <div id="toggleBtn" class="button">
+                    <span class="burger-icon">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </span>
+                </div>
+            </div>
             <div id="mySidenav" class="sidenav">
                 <a id="closeBtn" href="#" class="close"></a>
                 <div class="littleLogo">
@@ -58,17 +68,7 @@
                 <img src="<?php echo get_template_directory_uri() . '/assets/images/menuHibiscusfooter.png'; ?> " class="menuImg8" alt="">
                 <P class="legend">Studio Koukaki</p>
             </div>
-            <div class="menu">    
-                <h1 class="slogant">Fleurs d'oranger & chats errants</h1>
-                <div id="toggleBtn" class="button">
-                    <span class="burger-icon">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </span>
-                </div>
-                
-            </div>
+            
         </div>
 	</nav><!-- #site-navigation -->
 </header><!-- #masthead -->

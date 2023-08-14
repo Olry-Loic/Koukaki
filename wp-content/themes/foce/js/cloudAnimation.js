@@ -5,7 +5,7 @@
     // Sélectionnez l'image parallaxe
     const logoParallax = document.querySelector(".cloud-parallax img");
     
-    // Sélectionnez le logo (cloud dans ce cas)
+    // Sélectionnez le logo 
     const logo = document.querySelector(".cloud");
   
     // Fonction de callback pour l'intersection observer
@@ -28,11 +28,11 @@
       // Obtenez la position de défilement actuelle
       const scrollPosition = window.scrollY;
   
-      // Limitez la translation à 300px (pour l'image parallaxe)
+      // Limitez la translation à 300px 
       const parallaxTranslateX = Math.min(scrollPosition / 4, 300);
       logoParallax.style.transform = "translate3d(" + parallaxTranslateX + "px, 0, 0)";
   
-      // Limitez la translation à 300px (pour le logo)
+      // Limitez la translation à 300px 
       const logoTranslateX = Math.min(-scrollPosition / 10, 300);
       logo.style.transform = "translate3d(" + logoTranslateX + "px, 0, 0)";
     }
