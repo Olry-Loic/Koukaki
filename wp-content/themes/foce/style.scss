@@ -738,6 +738,7 @@ video#background-video {
 	position: relative;
 	width: 100%;
 	padding-bottom: 60%;
+	animation: slideDown 2000ms
 }
 
 img.image {
@@ -1474,7 +1475,7 @@ section#nomination {
 /* slideDown */  
   @keyframes slideDown {
 	0% {
-        transform: translatey(-100px);
+        transform: translatey(-150px);
 		opacity: 0;
     }
     100% {
@@ -1903,11 +1904,6 @@ p.legend {
 		height: auto;
 		margin-left: 20%;
 	}
-	/*.texte {
-		font-size: 18px;
-		margin-top: 10%;
-		margin-left: 25%;
-	}*/
 	.fond-texte {
 		width: 100% ;
 
@@ -1935,7 +1931,7 @@ p.legend {
 		animation: none;
 	}
 	h2, h3{
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
 	
 	#studio h2::before {
@@ -1947,6 +1943,19 @@ p.legend {
 	.texte {
 		font-size: calc(3.5vw);
 		margin-left: 10%;
+		margin-top: 5%;
+	}
+	#nomination .nominationOscars::before, #nomination .nominationOscars::after {
+		animation: none;
+	}
+	.story #place > div p {
+		padding-left: 0em;
+	}
+	.nominationOscars {
+		margin-bottom: -120px;
+	}
+		.story, #studio, #nomination, #colophon {
+		animation: none;
 	}
 }
 @media (min-width: 769px) {
@@ -1954,9 +1963,7 @@ p.legend {
 	img.image{
 		display: none;
 	}
-	.story, #studio, #nomination, #colophon {
-		animation: none;
-	}
+
 
 }
 
