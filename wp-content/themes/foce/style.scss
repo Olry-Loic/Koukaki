@@ -722,23 +722,18 @@ textarea {
 /*--------------------------------------------------------------
 # Layouts
 --------------------------------------------------------------*/
-img.image {
-    position: relative;
-    width: 100%;
-	z-index: 0;
-}
 
 video#background-video {
     position: relative;
     width: 100%;
 	z-index: 1;
+	animation: slideDown 2000ms;
 }
 
 .video-logo {
 	position: relative;
 	width: 100%;
 	padding-bottom: 60%;
-	animation: slideDown 2000ms
 }
 
 img.image {
@@ -746,6 +741,7 @@ img.image {
 	top: 0px;
     width: 100%;
 	z-index: -1;
+	animation: slideDown 2000ms;
 }
 
 video#background-video {
@@ -1487,7 +1483,7 @@ section#nomination {
 /* slideUp */ 
 @keyframes slideUp {
 	0% {
-        transform: translatey(250px);
+        transform: translatey(400px);
 		opacity: 0;
     }
     100% {
