@@ -1,14 +1,15 @@
+  // Attendre que le document soit chargé avant d'ajouter le gestionnaire d'événement de défilement
   document.addEventListener("DOMContentLoaded", function () {
-    // Sélectionnez l'élément HTML de votre section "banner"
+    // Sélection de l'élément HTML de votre section
     const bannerSection = document.querySelector(".place");
   
-    // Sélectionnez l'image parallaxe
+    // Sélection de limage 
     const logoParallax = document.querySelector(".cloud-parallax img");
     
-    // Sélectionnez le logo 
+    // Sélection de limage 
     const logo = document.querySelector(".cloud");
   
-    // Fonction de callback pour l'intersection observer
+    // Fonction pour l'intersection observer 
     function handleIntersection(entries, observer) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -28,8 +29,8 @@
       // Obtenez la position de défilement actuelle
       const scrollPosition = window.scrollY;
   
-      // Limitez la translation à 300px 
-      const parallaxTranslateX = Math.min(scrollPosition / 4, 300);
+      // Limite l'ecart entre les nuages 
+      const parallaxTranslateX = Math.min(300);
       logoParallax.style.transform = "translate3d(" + parallaxTranslateX + "px, 0, 0)";
   
       // Limitez la translation à 300px 

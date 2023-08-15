@@ -757,16 +757,6 @@ video#background-video {
   animation: slideUp 2000ms forwards, flotement 4000ms infinite forwards 2000ms;
 }
 
-/* effet de défilement */
-.logo-parallax img[data-bottom-top] {
-  transform: translate3d(0, 0px, 0);
-}
-
-/* effet de défilement  */
-.logo-parallax img[data-top-bottom] {
-  transform: translate3d(0, -50px, 0);
-}
-
 .story {
   position: relative;
   display: flex;
@@ -891,17 +881,6 @@ section#\#story {
 
 .littleCloud img {
   display: flex;
-}
-
-/* effet de défilement vers le haut */
-.cloud-parallax img[data-right-left] {
-  transform: translate3d(0, 0px, 0);
-  position: absolute;
-}
-
-/* effet de défilement vers le bas */
-.cloud-parallax img[data-left-right] {
-  transform: translate3d(0, -5px, 0);
 }
 
 .story #place h3 {
