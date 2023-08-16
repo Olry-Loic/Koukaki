@@ -1,3 +1,9 @@
+// Sélectionner toutes les balises <span> avec la classe "invisible"
+const invisibleSpans = document.querySelectorAll('span.invisible');
+
+// Créer l'observateur d'intersection
+const observer = new IntersectionObserver(handleIntersection, { threshold: 0.15 });
+
 function handleIntersection(entries) {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -13,12 +19,6 @@ function handleIntersection(entries) {
     }
   });
 }
-
-// Sélectionner toutes les balises <span> avec la classe "invisible"
-const invisibleSpans = document.querySelectorAll('span.invisible');
-
-// Créer l'observateur d'intersection
-const observer = new IntersectionObserver(handleIntersection, { threshold: 0.15 });
 
 // Observer chaque balise <span> avec la classe "invisible"
 invisibleSpans.forEach(span => observer.observe(span));
